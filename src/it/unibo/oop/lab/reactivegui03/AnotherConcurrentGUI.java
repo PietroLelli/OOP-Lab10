@@ -28,7 +28,6 @@ public class AnotherConcurrentGUI extends ConcurrentGUI {
         public void run() {
             while (!this.stop2) {
                 try {
-                    
                     Thread.sleep(100);
                 } catch (InvocationTargetException | InterruptedException ex) {
                     ex.printStackTrace();
