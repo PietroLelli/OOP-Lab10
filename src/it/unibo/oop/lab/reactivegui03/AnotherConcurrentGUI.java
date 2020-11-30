@@ -12,7 +12,30 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import it.unibo.oop.lab.reactivegui02.ConcurrentGUI;
+import it.unibo.oop.lab.reactivegui02.ConcurrentGUI.Agent;
+import it.unibo.oop.lab.reactivegui02.ConcurrentGUI.status;
 
-public class AnotherConcurrentGUI extends ConcurrentGUI{
-    
+public class AnotherConcurrentGUI extends ConcurrentGUI {
+
+    public AnotherConcurrentGUI() {
+        super();
+    }
+    private class Agent2 implements Runnable {
+        private volatile int counter2;
+        private volatile boolean stop2;
+        
+        @Override
+        public void run() {
+            while (!this.stop2) {
+                try {
+                    
+                    Thread.sleep(100);
+                } catch (InvocationTargetException | InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            
+        }
+        
+    }
 }

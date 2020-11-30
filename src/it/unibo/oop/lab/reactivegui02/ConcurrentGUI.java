@@ -82,10 +82,13 @@ public class ConcurrentGUI extends JFrame {
             while (!this.stop) {
                 try {
                     SwingUtilities.invokeAndWait(() -> ConcurrentGUI.this.display.setText(Integer.toString(Agent.this.counter)));
-                    if(this.stat == status.UP)
+                    if (this.stat == status.UP) {
                         this.counter++;
-                    else if(this.stat == status.DOWN)
+                    }
+                        
+                    else if (this.stat == status.DOWN) {
                         this.counter--;
+                    }
                     Thread.sleep(100);
 
                 } catch (InvocationTargetException | InterruptedException ex) {
